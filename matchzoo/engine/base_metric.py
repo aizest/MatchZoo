@@ -34,6 +34,6 @@ class BaseMetric(abc.ABC):
 
 
 def sort_and_couple(labels: np.array, scores: np.array) -> np.array:
-    """Zip the `labels` with `scores` into a single list."""
+    """Zip the `labels` with `scores` into a single list. Then sort the list by score in descending order"""
     couple = list(zip(labels, scores))
     return np.array(sorted(couple, key=lambda x: x[1], reverse=True))
