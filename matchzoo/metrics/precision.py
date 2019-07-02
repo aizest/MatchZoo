@@ -26,6 +26,7 @@ class Precision(BaseMetric):
     def __call__(self, y_true: np.array, y_pred: np.array) -> float:
         """
         Calculate precision@k.
+        This metric works better with BINARY labels rather than ORDINAL labels.
 
         Example:
             >>> y_true = [0, 0, 0, 1]
