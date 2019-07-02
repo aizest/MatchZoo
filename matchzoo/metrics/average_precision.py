@@ -25,6 +25,8 @@ class AveragePrecision(base_metric.BaseMetric):
     def __call__(self, y_true: np.array, y_pred: np.array) -> float:
         """
         Calculate average precision (area under PR curve).
+        An average of Precision@1, Precision@2, ..., Precision@K.
+        K is the length of y_true and y_pred.
 
         Example:
             >>> y_true = [0, 1]
