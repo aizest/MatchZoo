@@ -24,6 +24,7 @@ class MeanAveragePrecision(BaseMetric):
     def __call__(self, y_true: np.array, y_pred: np.array) -> float:
         """
         Calculate mean average precision.
+        This metric works better with BINARY labels rather than ORDINAL labels.
 
         Example:
             >>> y_true = [0, 1, 0, 0]
