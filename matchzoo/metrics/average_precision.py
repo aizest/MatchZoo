@@ -27,6 +27,7 @@ class AveragePrecision(base_metric.BaseMetric):
         Calculate average precision (area under PR curve).
         An average of Precision@1, Precision@2, ..., Precision@K.
         K is the length of y_true and y_pred.
+        This metric works better with BINARY labels rather than ORDINAL labels.
 
         Example:
             >>> y_true = [0, 1]
