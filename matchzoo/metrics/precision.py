@@ -39,8 +39,8 @@ class Precision(BaseMetric):
             >>> Precision(k=5)(y_true, y_pred)
             0.2
 
-        :param y_true: The ground true label of each document.
-        :param y_pred: The predicted scores of each document.
+        :param y_true: The ground true label of each document. Usually 0 or 1 (irrelevant or relevant)
+        :param y_pred: The predicted scores of each document. Relevance scores predicted by a model. The order of y_pred items is random. They will be sorted inside this function.
         :return: Precision @ k
         :raises: ValueError: len(r) must be >= k.
         """
