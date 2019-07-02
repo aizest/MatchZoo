@@ -24,6 +24,7 @@ class MeanReciprocalRank(BaseMetric):
     def __call__(self, y_true: np.array, y_pred: np.array) -> float:
         """
         Calculate reciprocal of the rank of the first relevant item.
+        This metric works better with BINARY labels rather than ORDINAL labels.
 
         Example:
             >>> import numpy as np
