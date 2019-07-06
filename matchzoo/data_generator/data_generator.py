@@ -118,7 +118,7 @@ class DataGenerator(keras.utils.Sequence):
         self._data_pack = data_pack
         self._batch_indices = None
 
-        self.reset_index()
+        self.reset_index() # set indexes for data batch
 
     def __getitem__(self, item: int) -> typing.Tuple[dict, np.ndarray]:
         """Get a batch from index idx.
