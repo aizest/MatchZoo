@@ -285,7 +285,7 @@ class DataGenerator(keras.utils.Sequence):
             'label', ascending=False).groupby('id_left')
         for idx, group in groups:
             labels = group.label.unique()
-            for label in labels[:-1]:
+            for label in labels[:-1]: # Groups with only 1 label (pos or neg) will be ignored
                 pos_samples = group[group.label == label]
                 pos_samples = pd.concat([pos_samples] * num_dup) # replicate the postive samples if num_dup > 1
                 neg_samples = group[group.label < label]
