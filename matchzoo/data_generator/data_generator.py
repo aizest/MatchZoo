@@ -159,14 +159,14 @@ class DataGenerator(keras.utils.Sequence):
         if self._mode == 'point':
             num_instances = len(self._data_pack)
             index_pool = list(range(num_instances))
-        elif self._mode == 'pair':
+        elif self._mode == 'pair': # initiate index_pool
             index_pool = []
             step_size = self._num_neg + 1
-            num_instances = int(len(self._data_pack) / step_size)
+            num_instances = int(len(self._data_pack) / step_size) # because each instance is a (pos_sample * 1, neg_sample * num_neg)
             for i in range(num_instances):
                 lower = i * step_size
                 upper = (i + 1) * step_size
-                indices = list(range(lower, upper))
+                indices = list(range(lower, upper)) # indexes for the samples of an instance
                 if indices:
                     index_pool.append(indices)
         elif self._mode == 'list':
