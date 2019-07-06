@@ -287,11 +287,11 @@ class DataGenerator(keras.utils.Sequence):
             labels = group.label.unique()
             for label in labels[:-1]:
                 pos_samples = group[group.label == label]
-                pos_samples = pd.concat([pos_samples] * num_dup)
+                pos_samples = pd.concat([pos_samples] * num_dup) # replicate the postive samples if num_dup > 1
                 neg_samples = group[group.label < label]
                 for _, pos_sample in pos_samples.iterrows():
                     pos_sample = pd.DataFrame([pos_sample])
-                    neg_sample = neg_samples.sample(num_neg, replace=True)
+                    neg_sample = neg_samples.sample(num_neg, replace=True) # sample num_neg negative examples, do replication if necessary
                     pairs.extend((pos_sample, neg_sample))
         new_relation = pd.concat(pairs, ignore_index=True)
         return new_relation
