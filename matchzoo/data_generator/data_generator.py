@@ -275,7 +275,11 @@ class DataGenerator(keras.utils.Sequence):
         num_dup: int = 1,
         num_neg: int = 1
     ):
-        """Re-organize the data pack as pair-wise format."""
+        """
+        Re-organize the data pack as pair-wise format.
+        The output is in a format like [(pos_sample * 1, neg_sample * num_neg), (pos_sample * 1, neg_sample * num_neg), ...]
+        Each entry is a row in the output DF.
+        """
         pairs = []
         groups = relation.sort_values(
             'label', ascending=False).groupby('id_left')
